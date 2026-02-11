@@ -97,9 +97,7 @@
         <h1>Online Alphabetizer</h1>
         <p>Enter your text below and click the button to sort lines alphabetically</p>
         
-        <textarea id="textInput" placeholder="Type or paste your text here...
-Each line will be sorted alphabetically
-Try it out!"></textarea>
+        <textarea id="textInput" placeholder="Type or paste your text here (one item per line)"></textarea>
         
         <button id="sortButton">Sort Alphabetically</button>
         
@@ -120,11 +118,9 @@ Try it out!"></textarea>
             }
 
             // Split by lines, sort alphabetically, and join back
-            const lines = text.split('\n');
-            const sortedLines = lines.sort((a, b) => {
+            const sortedText = text.split('\n').sort((a, b) => {
                 return a.localeCompare(b, undefined, { sensitivity: 'base' });
-            });
-            const sortedText = sortedLines.join('\n');
+            }).join('\n');
             
             textInput.value = sortedText;
         });
